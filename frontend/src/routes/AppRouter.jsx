@@ -1,26 +1,34 @@
 import React from "react";
 import {
   BrowserRouter as Router,
+  Switch,
   Route,
-  Routes,
-  Navigate
+  Redirect,
 } from "react-router-dom";
-import navbar from "../components/navbar";
-import index from "../pages/index";
+import Header from "../components/Header/Header";
+import CarHireScreen from "../pages/CarHireScreen";
+import FlightsScreen from "../pages/FlightsScreen";
+import HotelsScreen from "../pages/HotelsScreen";
+import IndexScreen from "../pages/IndexScreen";
+import ResultsScreen from "../pages/ResultsScreen";
 
 const AppRouter = () => {
   return (
     <>
       <Router>
-        <navbar />
-        <Routes>
-          <Route exact path="/" component={index} />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={IndexScreen} />
+          <Route exact path="/flights" component={FlightsScreen} />
+          <Route exact path="/hotels" component={HotelsScreen} />
+          <Route exact path="/carhire" component={CarHireScreen} />
           <Route
             exact
             path="/transport/flights/:fromId/:fromName/:toId/:toName/:depart/:returnDate/"
+            component={ResultsScreen}
           />
-          <Navigate to="/" />
-        </Routes>
+          <Redirect to="/" />
+        </Switch>
       </Router>
     </>
   );

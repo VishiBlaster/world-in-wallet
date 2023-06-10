@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const navbar = () => {
+const Header = () => {
 	return (
 		<header>
 			<div className='test d-flex flex-column'>
@@ -19,9 +20,10 @@ const navbar = () => {
 						Log in
 					</button>
 				</div>
+				<Navbar />
 			</div>
 		</header>
 	);
 };
 
-export default navbar;
+export default Header;
